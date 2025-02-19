@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Robux Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #ff0000;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 12px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #robuxAmount {
+            width: 200px;
+            background: #333;
+            color: white;
+            border: 1px solid #ff4444;
+        }
+        button {
+            background: #ff4444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff0000;
+        }
+        .warning {
+            color: #ff4444;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔴 Robux Generator v9.9</h1>
+        <input type="text" id="username" placeholder="Roblox Username">
+        <br>
+        <input type="number" id="robuxAmount" min="20" max="10000000" placeholder="Amount (20-10,000,000)">
+        <br>
+        <button onclick="startGenerate()">GENERATE ROBUX!</button>
+        <p class="warning">⚠️ Это демонстрационный проект. Не вводите реальные данные!</p>
+    </div>
+
+    <script>
+        function startGenerate() {
+            const username = document.getElementById('username').value;
+            const amount = document.getElementById('robuxAmount').value;
+
+            if(!username || !amount) {
+                alert("Заполните все поля!");
+                return;
+            }
+
+            localStorage.setItem('rbxData', JSON.stringify({username, amount}));
+            window.location.href = 'progress.html';
+        }
+    </script>
+</body>
+</html>
